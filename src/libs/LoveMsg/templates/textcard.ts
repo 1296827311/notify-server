@@ -34,6 +34,8 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
   // 今日、恋爱天数
   const today = `${date.replace('-', '年').replace('-', '月')}日`
   const dateLength = dayjs(date).diff(start_stamp, 'day')
+  const mouth = dayjs(date).diff(start_stamp, 'month')
+  console.log(mouth, 222221111)
 
   // 公历节日、农历节日和二十四节气
   const { festival, lunar_festival, jieqi, lubarmonth, lunarday } = lunarInfo

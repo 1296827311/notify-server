@@ -6,6 +6,7 @@ import API from '../../api/loveMsg'
 import { wxNotify } from '../WxNotify'
 import { textTemplate } from './templates/text'
 import { textCardTemplate } from './templates/textcard'
+import { newsTemplate } from './templates/news'
 
 // 美丽短句
 const goodWord = async() => {
@@ -38,12 +39,17 @@ const goodWord = async() => {
 
     const template = textTemplate(data)
     console.log('goodWord', template)
-
     wxNotify(template)
   }
   catch (error) {
     console.log('goodWord:err', error)
   }
+}
+
+const bbc = async() => {
+  const template = newsTemplate()
+  console.log('111111', template)
+  await wxNotify(template)
 }
 
 // 天气信息
@@ -60,5 +66,6 @@ const weatherInfo = async() => {
 // goodMorning
 export const goodMorning = async() => {
   await weatherInfo()
+  await bbc()
   await goodWord()
 }

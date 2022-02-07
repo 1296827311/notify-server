@@ -15,7 +15,7 @@ export const textTemplate = (data: TextTemplateProps) => {
   if (['星期六', '星期日'].includes(week)) {
     text += `
 牛崽起咗床未呀？华哥仲等紧牛崽起床同佢讲早安喔🤣\n
-不过既然今日係${week}，就俾你瞓多一阵懒觉啦😝\n`
+不过既然今日係${week}，http://s1.dgtle.com/dgtle_img/ins/2022/02/06/123e7202202061013328871_1800_500.jpg就俾你瞓多一阵懒觉啦😝\n`
   }
   else {
     text += `
