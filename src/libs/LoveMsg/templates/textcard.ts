@@ -80,7 +80,7 @@ Hey，What’s up beauty gir！呢度係来自华哥嘅爱心提醒：
 
   // 内容末尾，自定义
   description += `
-  [ 点我有看咨询 ] ❤️ 🧡 💛 💚 💖`
+  [ 点我有看资讯 ] ❤️ 🧡 💛 💚 💖`
 
   const title = `嘿嘿，今天係我哋拍拖仔嘅第 ${dateLength} 日啦❤️`
 
