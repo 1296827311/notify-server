@@ -117,6 +117,11 @@ interface SayloveProps {
   content: string
 }
 
+// 早安心语
+interface zaoanLoveWord {
+  content: string
+}
+
 // 励志古言
 interface InspirationalWordProps {
   saying: string
@@ -156,4 +161,5 @@ type TextTemplateProps = {
   oneMagazines: OneMagazines | null
   netEaseCloud: NetEaseCloudProps | null
   dayEnglish: ResEnglishProps | null
+  zaoanWord: zaoanLoveWord | null
 }

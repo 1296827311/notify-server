@@ -4,6 +4,7 @@
  */
 import API from '../../api/loveMsg'
 import { wxNotify } from '../WxNotify'
+import dayjs from './../../utils/dayjs'
 import { textTemplate } from './templates/text'
 import { textCardTemplate } from './templates/textcard'
 import { newsTemplate } from './templates/news'
@@ -20,10 +21,11 @@ const goodWord = async() => {
       API.getOneMagazines(), // one杂志
       API.getNetEaseCloud(), // 网易云热评
       API.getDayEnglish(), // 每日英语
+      API.zaoanText(), // 早安心语
     ])
 
     // 过滤掉异常数据
-    const [sayLove, caiHongpi, oneWord, songLyrics, oneMagazines, netEaseCloud, dayEnglish]
+    const [sayLove, caiHongpi, oneWord, songLyrics, oneMagazines, netEaseCloud, dayEnglish, zaoanWord]
       = dataSource.map(n => (n.status === 'fulfilled' ? n.value : null))
 
     // 对象写法
@@ -35,6 +37,7 @@ const goodWord = async() => {
       oneMagazines,
       netEaseCloud,
       dayEnglish,
+      zaoanWord,
     }
 
     const template = textTemplate(data)
@@ -45,27 +48,23 @@ const goodWord = async() => {
     console.log('goodWord:err', error)
   }
 }
-
-const bbc = async() => {
-  const template = newsTemplate()
-  console.log('111111', template)
+const memorialMonth = async() => {
+  const template = await newsTemplate()
   await wxNotify(template)
 }
-
 // 天气信息
 const weatherInfo = async() => {
   const weather = await API.getWeather('广州')
   if (weather) {
     const lunarInfo = await API.getLunarDate(weather.date)
     const template = textCardTemplate({ ...weather, lunarInfo })
-    // 发送消息
     await wxNotify(template)
   }
 }
 
-// goodMorning
+// goodMorning                                                                                               w
 export const goodMorning = async() => {
   await weatherInfo()
-  await bbc()
+  await memorialMonth()
   await goodWord()
 }

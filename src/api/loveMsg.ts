@@ -13,6 +13,8 @@ enum LoveMsgURL {
   topNews = 'http://api.tianapi.com/topnews/index',
   // 最美宋词
   songLyrics = 'http://api.tianapi.com/zmsc/index',
+  // 早安心语
+  zaoanWord = 'http://api.tianapi.com/zaoan/index',
   // 每日一句美好英语
   dayEnglish = 'http://api.tianapi.com/everyday/index',
   // 韩寒主编的ONE一个杂志，本接口返回每日一句
@@ -65,11 +67,17 @@ class API {
   async getTianTopNews() {
     const res = await getTian<TodayHeadlines[]>({ url: LoveMsgURL.topNews })
     return res
-  } 
+  }
 
   // 最美宋词
   async getSongLyrics() {
     const res = await getTian<IVerseProps[]>({ url: LoveMsgURL.songLyrics })
+    return res?.[0]
+  }
+
+  // 早安心语
+  async zaoanText() {
+    const res = await getTian<zaoanLoveWord[]>({ url: LoveMsgURL.zaoanWord })
     return res?.[0]
   }
 
@@ -126,7 +134,8 @@ class API {
     try {
       const response = await axios(LoveMsgURL.oneWord, { timeout: 30000 })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.log(error)
       return null
     }

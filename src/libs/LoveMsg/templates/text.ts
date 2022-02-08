@@ -6,7 +6,7 @@
 import dayjs, { weekToday } from '../../../utils/dayjs'
 
 export const textTemplate = (data: TextTemplateProps) => {
-  const { caiHongpi, sayLove, songLyrics, oneMagazines, netEaseCloud, oneWord, dayEnglish } = data
+  const { caiHongpi, sayLove, songLyrics, oneMagazines, netEaseCloud, oneWord, dayEnglish, zaoanWord } = data
 
   let text = '早安呀，我可爱嘅牛崽~\n'
 
@@ -15,7 +15,7 @@ export const textTemplate = (data: TextTemplateProps) => {
   if (['星期六', '星期日'].includes(week)) {
     text += `
 牛崽起咗床未呀？华哥仲等紧牛崽起床同佢讲早安喔🤣\n
-不过既然今日係${week}，http://s1.dgtle.com/dgtle_img/ins/2022/02/06/123e7202202061013328871_1800_500.jpg就俾你瞓多一阵懒觉啦😝\n`
+不过既然今日係${week}，就俾你瞓多一阵懒觉啦😝\n`
   }
   else {
     text += `
@@ -31,9 +31,14 @@ export const textTemplate = (data: TextTemplateProps) => {
 ${caiHongpi.content}\n`
   }
 
-  if (sayLove) {
+  //   if (sayLove) {
+  //     text += `
+  // ${sayLove.content}\n`
+  //   }
+
+  if (zaoanWord) {
     text += `
-${sayLove.content}\n`
+『华哥牌早安心语❤️』${zaoanWord.content}\n`
   }
 
   // 诗句
@@ -52,11 +57,11 @@ ${sayLove.content}\n`
 『网易云音乐热评』${netEaseCloud.content}——${netEaseCloud.source}\n`
   }
 
-  // 添加一句一言
-  if (oneWord) {
-    text += `
-『一言』${oneWord.hitokoto}\n`
-  }
+  //   // 添加一句一言
+  //   if (oneWord) {
+  //     text += `
+  // 『一言』${oneWord.hitokoto}\n`
+  //   }
 
   // 每日英语
   if (dayEnglish) {
