@@ -8,7 +8,7 @@ import dayjs, { weekToday } from '../../../utils/dayjs'
 export const textTemplate = (data: TextTemplateProps) => {
   const { caiHongpi, sayLove, songLyrics, oneMagazines, netEaseCloud, oneWord, dayEnglish, zaoanWord } = data
 
-  let text = '早安呀，我可爱嘅牛崽~\n'
+  let text = '早安呀，我可爱嘅牛崽\n'
 
   // 工作日/休息日，需要排除节假日
   const week = weekToday()
@@ -20,7 +20,7 @@ export const textTemplate = (data: TextTemplateProps) => {
   else {
     text += `
 牛崽起咗床未呀？华哥同你讲早安哟，记得按时食早餐呀😆\n
-今日係${week}啵，返学唔好迟到了喔\n`
+今日係${week}啵，返学唔好迟到了\n`
   }
 
   // 添加笑话
