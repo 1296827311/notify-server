@@ -69,7 +69,6 @@ const getNews = async() => {
       const start = 8 * i
       const end = 8 * i + 8 < result.length ? 8 * i + 8 : result.length
       console.log(result.length, start, end)
-
       const template = newsTemplate(result.slice(start, end))
       await wxNotify(template)
     }

@@ -52,6 +52,7 @@ const memorialMonth = async() => {
   const template = await newsTemplate()
   await wxNotify(template)
 }
+
 // 天气信息
 const weatherInfo = async() => {
   const weather = await API.getWeather('广州')
