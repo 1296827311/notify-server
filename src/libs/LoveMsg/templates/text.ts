@@ -8,18 +8,27 @@ import dayjs, { weekToday } from '../../../utils/dayjs'
 export const textTemplate = (data: TextTemplateProps) => {
   const { caiHongpi, sayLove, songLyrics, oneMagazines, netEaseCloud, oneWord, dayEnglish, zaoanWord } = data
 
-  let text = '早安呀，我可爱嘅牛崽\n'
+  let text = '早安呀，我可爱嘅牛崽😘😘😘\n'
 
   // 工作日/休息日，需要排除节假日
   const week = weekToday()
   if (['星期六', '星期日'].includes(week)) {
     text += `
-牛崽起咗床未呀？华哥仲等紧牛崽起床同佢讲早安喔🤣\n
+  牛崽起咗床未呀？华哥仲等紧牛崽起床同佢讲早安喔🤣\n
 不过既然今日係${week}，就俾你瞓多一阵懒觉啦😝\n`
+  }
+  else if (['星期四'].includes(week)) {
+    text += `
+              『今天星期四
+                 明天星期五
+                 再坚持一天
+                 然后星期天
+                 星期天不上班
+                 一直睡到下午』\n`
   }
   else {
     text += `
-牛崽起咗床未呀？华哥同你讲早安哟，记得按时食早餐呀😆\n
+  牛崽起咗床未呀？华哥同你讲早安哟，记得按时食早餐呀😆\n
 今日係${week}啵，返学唔好迟到了\n`
   }
 
@@ -31,10 +40,10 @@ export const textTemplate = (data: TextTemplateProps) => {
 ${caiHongpi.content}\n`
   }
 
-  //   if (sayLove) {
-  //     text += `
+  // if (sayLove) {
+  //   text += `
   // ${sayLove.content}\n`
-  //   }
+  // }
 
   if (zaoanWord) {
     text += `
@@ -66,7 +75,7 @@ ${caiHongpi.content}\n`
   // 每日英语
   if (dayEnglish) {
     text += `
-『每日英语（${dayjs(dayEnglish.date).format('ll')}』${dayEnglish.content}`
+『每日英语（${dayjs(dayEnglish.date).format('ll')})』${dayEnglish.content}(${dayEnglish.note})`
   }
 
   return {
