@@ -36,7 +36,7 @@ export const newsTemplate = async() => {
     const lunarInfo = await API.getLunarDate(weather.date)
     const param = time({ ...weather, lunarInfo })
     const articles = [{
-      title: `宝贝，今天是我们牵手迈向的第${param.mouth + 1}个月了，${param.mouth + 1}个月快乐呀，Love you more and more！`,
+      title: `宝贝，今天是我们牵手迈向的第${param.mouth + 1}个月了，${param.mouth}个月快乐呀，Love you more and more！`,
       description: '喜乐有分享，共度日月长。',
       url: 'http://m.qpic.cn/psc?/V11O7SLX0g8l1K/45NBuzDIW489QBoVep5mcZsnB1RWxLetc*aTUVhSccgfDBDqKs6656pInIZRH8a9gTXnL5IOwyzNKd.Dghax1R0jJzMXVgNFMEbx4YKvr3s!/b&bo=oAU4BKAFOAQBGT4!&rf=viewer_4',
       picurl: 'http://m.qpic.cn/psc?/V11O7SLX0g8l1K/45NBuzDIW489QBoVep5mcZsnB1RWxLetc*aTUVhSccgfDBDqKs6656pInIZRH8a9gTXnL5IOwyzNKd.Dghax1R0jJzMXVgNFMEbx4YKvr3s!/b&bo=oAU4BKAFOAQBGT4!&rf=viewer_4',
